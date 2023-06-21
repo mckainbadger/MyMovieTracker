@@ -4,7 +4,10 @@ import PrimarySearchAppBar from './components/PrimarySearchAppBar'
 import Homepage from './components/Homepage';
 function App() {
   return (
-      <PrimarySearchAppBar/> 
+    <div>
+    <PrimarySearchAppBar/> 
+      <h1>Popular Films</h1>
+      </div>
   );
 }
 
