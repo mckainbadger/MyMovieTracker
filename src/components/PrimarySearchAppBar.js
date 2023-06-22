@@ -9,7 +9,6 @@ import InputBase from '@mui/material/InputBase';
 import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -119,12 +118,14 @@ export default function PrimarySearchAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+      <link href = "./pages/Watchlist">
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
             <VisibilityIcon />
         </IconButton>
         <p>Watchlist</p>
       </MenuItem>
+      </link>
       <MenuItem>
         <IconButton
           size="large"
