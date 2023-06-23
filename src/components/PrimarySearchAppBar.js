@@ -14,6 +14,8 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import StarIcon from "@mui/icons-material/Star";
 import { Link } from "react-router-dom";
+import MenuIcon from '@mui/icons-material/Menu';
+import MovieIcon from '@mui/icons-material/Movie';
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -130,6 +132,19 @@ export default function PrimarySearchAppBar() {
         </Link>
         <p>Watchlist</p>
       </MenuItem>
+      
+      <MenuItem>
+        <Link to={"/favorites"}>
+          <IconButton
+            size="large"
+            aria-label="show 4 new mails"
+            color="inherit"
+          >
+            <StarIcon />
+          </IconButton>
+        </Link>
+        <p>Favorites</p>
+      </MenuItem>
     </Menu>
   );
 
@@ -140,10 +155,12 @@ export default function PrimarySearchAppBar() {
           <IconButton
             size="large"
             edge="start"
-            color="inherit"
+            color="inherint"
             aria-label="open drawer"
             sx={{ mr: 2 }}
-          ></IconButton>
+          >
+            <MovieIcon />
+          </IconButton>
 
           <Link style={{ textDecoration: "none", color: "white" }} to={"/"}>
             <Typography
@@ -152,6 +169,7 @@ export default function PrimarySearchAppBar() {
               component="div"
               sx={{ display: { xs: "none", sm: "block" } }}
             >
+              
               MyMovieTracker
             </Typography>
           </Link>
@@ -160,7 +178,7 @@ export default function PrimarySearchAppBar() {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Search Movie…"
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
@@ -181,6 +199,13 @@ export default function PrimarySearchAppBar() {
                 </Link>
               </Badge>
             </IconButton>
+            <Link
+                  style={{ textDecoration: "none", color: "white" }}
+                  to={"/favorites"}
+                >
+                  {" "}
+                  <StarIcon />
+                </Link>
             <IconButton
               size="large"
               aria-label="show 17 new notifications"

@@ -69,8 +69,8 @@ function Homepage(props) {
   return (
     <>
       <Paper
-        elevation={3}
-        sx={{ margin: 10, padding: 4, backgroundColor: "gray" }}
+        elevation={4}
+        sx={{ margin: 10, padding: 4, backgroundColor: "#546e7a" }}
       >
         <Grid container spacing={2}>
           {popularMovies.map((movieData) => {

@@ -30,7 +30,7 @@ function Watchlist(props) {
   return (
     <div>
       <h2>My Watchlist</h2>
-      <Paper elevation={3} sx={{ margin: 2, padding: 2 }}>
+      <Paper elevation={4} sx={{ margin: 2, padding: 2 , backgroundColor: "#546e7a" }}>
         <Grid container spacing={2}>
           {watchlist.map((movieData) => {
             return (

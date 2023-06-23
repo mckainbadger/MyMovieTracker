@@ -28,12 +28,9 @@ const MovieCard = (props) => {
     const getPosterImg = async () => {
       try {
         const response = await fetch(
-          `https://image.tmdb.org/t/p/original${movieData.poster_path}`,
+          `https://corsproxy.io/?https://image.tmdb.org/t/p/original${movieData.poster_path}`,
           {
-            method: "GET",
-            mode: "cors",
             headers: {
-              "Content-type": "application/json",
               authorization: `Bearer ${APIKey}`,
             },
           }
@@ -41,8 +38,9 @@ const MovieCard = (props) => {
         if (!response.ok) {
           throw new Error("failed to fetch data");
         }
-        const result = await response.json();
-        setPosterImg(result.results);
+        // const result = await response.json();
+        console.log(response.body)
+        // setPosterImg(result.results);
       } catch (err) {
         console.log(err);
       }
@@ -52,11 +50,11 @@ const MovieCard = (props) => {
   //** Return JSX
   return (
     <div>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 345, backgroundColor: "#b0bec5" }}>
         <CardMedia
           sx={{ height: 240, border: 1, margin: 2 }}
-          image={posterImg}
-          title="green iguana"
+          image={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
+          title="poster"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
@@ -75,6 +73,7 @@ const MovieCard = (props) => {
           >
             <VisibilityIcon />
           </Button>
+
           <Link to={`/movie/${movieData.id}`}>
             <Button size="small">
               <InfoIcon />

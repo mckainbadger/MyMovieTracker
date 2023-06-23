@@ -52,7 +52,7 @@ function MoviePage(props) {
     const getPosterImg = async () => {
       try {
         const response = await fetch(
-          `https://image.tmdb.org/t/p/original${currentMovie.poster_path}`,
+          `https://corsproxy.io/?https://image.tmdb.org/t/p/original${currentMovie.poster_path}`,
           {
             method: "GET",
             mode: "cors",
@@ -86,10 +86,9 @@ function MoviePage(props) {
   //** Return JSX
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
-      <Paper elevation={5} sx={{ width: 400, margin: "30px", padding: "20px" }}>
+      <Paper elevation={5} sx={{ width: 400, margin: "30px", padding: "20px" , backgroundColor: "#b0bec5"}}>
         <Paper elevation={0} sx={{ display: "flex", justifyContent: "center" }}>
-          <CardMedia sx={{ border: 2, height: 240, width: 180 }}>
-            {posterImg}
+          <CardMedia image={`https://image.tmdb.org/t/p/w500${currentMovie.poster_path}`} sx={{ border: 2, height: 240, width: 400 }}>
           </CardMedia>
         </Paper>
         <h2>{currentMovie.title}</h2>

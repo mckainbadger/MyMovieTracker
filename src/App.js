@@ -6,6 +6,7 @@ import Layout from "./components/Layout";
 import Homepage from "./components/Homepage";
 import MoviePage from "./components/MoviePage";
 import {Routes, Route} from 'react-router-dom'
+import Favorites from "./components/Favorites";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route index element={<Homepage />} />
           <Route path="/watchlist" element={<Watchlist />} />
           <Route path="/movie/:id" element={<MoviePage />} />
+          <Route path="/favorites" elemnt={<Favorites />} />
         </Route>
       </Routes>
     </div>

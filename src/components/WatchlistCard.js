@@ -14,6 +14,8 @@ import { Link } from "react-router-dom";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import InfoIcon from "@mui/icons-material/Info";
 //** Setup (define helper functions and variables here)
+const APIKey =
+    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MDM0MDY0NDI5NjBmZDhmMzgyZTJmNTRhNjliMjQ1YSIsInN1YiI6IjY0OGJhNGY3NDJiZjAxMDBlNDlkMTVmZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.rIxYrKyS8HrVHljsFbY_F1ZQ3sUEa3uPKrbcQvSF2oo";
 
 const WatchlistCard = (props) => {
   //** Destructure Props
@@ -21,13 +23,37 @@ const WatchlistCard = (props) => {
 
   //** State Variables
   //** Component Logic
+  useEffect(() => {
+    const getPosterImg = async () => {
+      try {
+        const response = await fetch(
+          `https://corsproxy.io/?https://image.tmdb.org/t/p/original${movieData.poster_path}`,
+          {
+            headers: {
+              authorization: `Bearer ${APIKey}`,
+            },
+          }
+        );
+        if (!response.ok) {
+          throw new Error("failed to fetch data");
+        }
+        // const result = await response.json();
+        console.log(response.body)
+        // setPosterImg(result.results);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getPosterImg();
+  }, [movieData]);
   //** Return JSX
   return (
     <div>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 345 , backgroundColor: "#b0bec5" }}>
         <CardMedia
+        image={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
           sx={{ height: 240, border: 1, margin: 2 }}
-          title="green iguana"
+          title="poster"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
